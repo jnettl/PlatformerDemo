@@ -1,0 +1,157 @@
+[gd_scene load_steps=4 format=3 uid="uid://yyv0xqbbkqqk"]
+
+[ext_resource type="Script" path="res://scripts/ui/main_menu.gd" id="3_ir1yl"]
+
+[sub_resource type="InputEventKey" id="InputEventKey_5xyr3"]
+device = -1
+keycode = 4194305
+
+[sub_resource type="Shortcut" id="Shortcut_81wbi"]
+events = [SubResource("InputEventKey_5xyr3")]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("3_ir1yl")
+
+[node name="Margin" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="Reset" type="Control" parent="Margin"]
+auto_translate_mode = 1
+layout_mode = 2
+
+[node name="Title" type="Label" parent="Margin/Reset"]
+auto_translate_mode = 1
+texture_filter = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.25
+anchor_right = 0.5
+anchor_bottom = 0.25
+offset_left = -556.0
+offset_top = -26.5
+offset_right = 556.0
+offset_bottom = 26.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_type_variation = &"HeaderLarge"
+text = "Cranky Pants"
+horizontal_alignment = 1
+
+[node name="Back" type="Button" parent="Margin/Reset"]
+unique_name_in_owner = true
+auto_translate_mode = 1
+visible = false
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -26.0
+offset_right = 49.0
+grow_vertical = 0
+shortcut = SubResource("Shortcut_81wbi")
+text = "Back"
+
+[node name="SaveSlots" type="HBoxContainer" parent="Margin/Reset"]
+unique_name_in_owner = true
+auto_translate_mode = 1
+visible = false
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_right = 100.001
+offset_bottom = 58.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 150
+alignment = 1
+
+[node name="Main" type="VBoxContainer" parent="Margin/Reset"]
+unique_name_in_owner = true
+auto_translate_mode = 1
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_right = 100.001
+offset_bottom = 58.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+
+[node name="NewGame" type="Button" parent="Margin/Reset/Main"]
+auto_translate_mode = 1
+custom_minimum_size = Vector2(300, 40)
+layout_mode = 2
+text = "New Game"
+
+[node name="LoadGame" type="Button" parent="Margin/Reset/Main"]
+unique_name_in_owner = true
+auto_translate_mode = 1
+custom_minimum_size = Vector2(300, 40)
+layout_mode = 2
+disabled = true
+text = "Continue"
+
+[node name="OpenSettings" type="Button" parent="Margin/Reset/Main"]
+auto_translate_mode = 1
+custom_minimum_size = Vector2(300, 40)
+layout_mode = 2
+text = "Settings"
+
+[node name="QuitGame" type="Button" parent="Margin/Reset/Main"]
+auto_translate_mode = 1
+custom_minimum_size = Vector2(300, 40)
+layout_mode = 2
+text = "Quit"
+
+[node name="LoadGame" type="Control" parent="Margin/Reset"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Back" type="Button" parent="Margin/Reset/LoadGame"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -8.0
+offset_right = 8.0
+grow_vertical = 0
+shortcut = SubResource("Shortcut_81wbi")
+text = "Back"
+
+[connection signal="pressed" from="Margin/Reset/Back" to="." method="_on_back_pressed"]
+[connection signal="pressed" from="Margin/Reset/Main/NewGame" to="." method="_on_new_game_pressed"]
+[connection signal="pressed" from="Margin/Reset/Main/LoadGame" to="." method="_on_load_game_pressed"]
+[connection signal="pressed" from="Margin/Reset/Main/OpenSettings" to="." method="_on_open_settings_pressed"]
+[connection signal="pressed" from="Margin/Reset/Main/QuitGame" to="." method="_on_quit_game_pressed"]

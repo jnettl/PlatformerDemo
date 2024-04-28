@@ -1,0 +1,55 @@
+[gd_resource type="Theme" load_steps=9 format=3 uid="uid://xycdr35n7pr4"]
+
+[ext_resource type="FontFile" uid="uid://b03vvia832gip" path="res://assets/font/Kenney High.ttf" id="1_8dh2e"]
+[ext_resource type="FontFile" uid="uid://dhw1qa4aoh643" path="res://assets/font/Kenney Future Square.ttf" id="2_nhb8p"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_asgu0"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a5lr1"]
+bg_color = Color(1, 1, 1, 0.247059)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_iru0h"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vyy30"]
+content_margin_left = 20.0
+content_margin_top = 4.0
+content_margin_right = 20.0
+content_margin_bottom = 4.0
+bg_color = Color(1, 1, 1, 0.372549)
+border_width_left = 1
+border_width_right = 1
+border_color = Color(0.175, 0.175, 0.175, 1)
+corner_detail = 1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8i5uo"]
+content_margin_left = 20.0
+content_margin_top = 4.0
+content_margin_right = 20.0
+content_margin_bottom = 4.0
+bg_color = Color(1, 1, 1, 0.247059)
+border_width_top = 2
+border_color = Color(1, 1, 1, 0.75)
+corner_detail = 1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ypo6o"]
+content_margin_left = 20.0
+content_margin_top = 4.0
+content_margin_right = 20.0
+content_margin_bottom = 4.0
+bg_color = Color(1, 1, 1, 0.121569)
+border_width_left = 1
+border_width_right = 1
+border_color = Color(0.175, 0.175, 0.175, 1)
+corner_detail = 1
+
+[resource]
+default_font = ExtResource("2_nhb8p")
+default_font_size = 14
+Button/styles/focus = SubResource("StyleBoxEmpty_asgu0")
+HeaderLarge/font_sizes/font_size = 80
+HeaderLarge/fonts/font = ExtResource("1_8dh2e")
+TabContainer/styles/panel = SubResource("StyleBoxFlat_a5lr1")
+TabContainer/styles/tab_focus = SubResource("StyleBoxEmpty_iru0h")
+TabContainer/styles/tab_hovered = SubResource("StyleBoxFlat_vyy30")
+TabContainer/styles/tab_selected = SubResource("StyleBoxFlat_8i5uo")
+TabContainer/styles/tab_unselected = SubResource("StyleBoxFlat_ypo6o")

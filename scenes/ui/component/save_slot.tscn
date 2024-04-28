@@ -1,0 +1,29 @@
+[gd_scene load_steps=2 format=3 uid="uid://cglv3nec6ndsp"]
+
+[sub_resource type="GDScript" id="GDScript_v2lhk"]
+resource_name = "save_slot"
+script/source = "extends Control
+
+@onready var button: Button = $Button
+
+func init(save: SaveState) -> void:
+	button.set_text(\"{0}\\n{1}%\".format([save.name, save.progress * 100]))
+"
+
+[node name="SaveSlot" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = SubResource("GDScript_v2lhk")
+
+[node name="Button" type="Button" parent="."]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2

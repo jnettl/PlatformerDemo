@@ -1,0 +1,280 @@
+[gd_scene load_steps=5 format=3 uid="uid://gwrq328gnx2y"]
+
+[ext_resource type="Script" path="res://scripts/ui/settings_menu.gd" id="1_s85kl"]
+
+[sub_resource type="InputEventKey" id="InputEventKey_5xyr3"]
+device = -1
+keycode = 4194305
+
+[sub_resource type="Shortcut" id="Shortcut_vh3ja"]
+events = [SubResource("InputEventKey_5xyr3")]
+
+[sub_resource type="LabelSettings" id="LabelSettings_2qrmk"]
+font_color = Color(0.544974, 0.544974, 0.544974, 1)
+
+[node name="SettingsMenu" type="Control"]
+auto_translate_mode = 1
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_s85kl")
+
+[node name="Margin" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="Break" type="Control" parent="Margin"]
+layout_mode = 2
+
+[node name="Back" type="Button" parent="Margin/Break"]
+unique_name_in_owner = true
+auto_translate_mode = 1
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -31.0
+offset_right = 45.0
+grow_vertical = 0
+shortcut = SubResource("Shortcut_vh3ja")
+text = "Back"
+
+[node name="Margin" type="MarginContainer" parent="Margin/Break"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 60
+
+[node name="Tab" type="TabContainer" parent="Margin/Break/Margin"]
+layout_mode = 2
+tab_alignment = 1
+current_tab = 0
+
+[node name="Display" type="Control" parent="Margin/Break/Margin/Tab"]
+layout_mode = 2
+
+[node name="Settings" type="VBoxContainer" parent="Margin/Break/Margin/Tab/Display"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.1
+anchor_right = 0.5
+anchor_bottom = 0.9
+metadata/_edit_use_anchors_ = true
+
+[node name="Resolution" type="HBoxContainer" parent="Margin/Break/Margin/Tab/Display/Settings"]
+layout_mode = 2
+theme_override_constants/separation = 40
+
+[node name="Label" type="Label" parent="Margin/Break/Margin/Tab/Display/Settings/Resolution"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Resolution"
+horizontal_alignment = 1
+
+[node name="ResolutionOption" type="OptionButton" parent="Margin/Break/Margin/Tab/Display/Settings/Resolution"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Window" type="HBoxContainer" parent="Margin/Break/Margin/Tab/Display/Settings"]
+auto_translate_mode = 1
+layout_mode = 2
+theme_override_constants/separation = 40
+
+[node name="Label" type="Label" parent="Margin/Break/Margin/Tab/Display/Settings/Window"]
+auto_translate_mode = 1
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Window"
+horizontal_alignment = 1
+
+[node name="WindowOption" type="OptionButton" parent="Margin/Break/Margin/Tab/Display/Settings/Window"]
+unique_name_in_owner = true
+auto_translate_mode = 1
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Audio" type="Control" parent="Margin/Break/Margin/Tab"]
+auto_translate_mode = 1
+visible = false
+layout_mode = 2
+
+[node name="Settings" type="VBoxContainer" parent="Margin/Break/Margin/Tab/Audio"]
+auto_translate_mode = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.1
+anchor_right = 0.5
+anchor_bottom = 0.9
+metadata/_edit_use_anchors_ = true
+
+[node name="Category" type="HBoxContainer" parent="Margin/Break/Margin/Tab/Audio/Settings"]
+auto_translate_mode = 1
+layout_mode = 2
+theme_override_constants/separation = 40
+
+[node name="Label" type="Label" parent="Margin/Break/Margin/Tab/Audio/Settings/Category"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Volume"
+label_settings = SubResource("LabelSettings_2qrmk")
+horizontal_alignment = 1
+
+[node name="Spacer" type="Control" parent="Margin/Break/Margin/Tab/Audio/Settings/Category"]
+auto_translate_mode = 1
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="MasterVol" type="HBoxContainer" parent="Margin/Break/Margin/Tab/Audio/Settings"]
+auto_translate_mode = 1
+layout_mode = 2
+theme_override_constants/separation = 40
+
+[node name="Label" type="Label" parent="Margin/Break/Margin/Tab/Audio/Settings/MasterVol"]
+auto_translate_mode = 1
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Master"
+horizontal_alignment = 1
+
+[node name="MasterSlider" type="HSlider" parent="Margin/Break/Margin/Tab/Audio/Settings/MasterVol"]
+unique_name_in_owner = true
+auto_translate_mode = 1
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="MusicVol" type="HBoxContainer" parent="Margin/Break/Margin/Tab/Audio/Settings"]
+auto_translate_mode = 1
+layout_mode = 2
+theme_override_constants/separation = 40
+
+[node name="Label" type="Label" parent="Margin/Break/Margin/Tab/Audio/Settings/MusicVol"]
+auto_translate_mode = 1
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Music"
+horizontal_alignment = 1
+
+[node name="MusicSlider" type="HSlider" parent="Margin/Break/Margin/Tab/Audio/Settings/MusicVol"]
+unique_name_in_owner = true
+auto_translate_mode = 1
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="PlayerVol" type="HBoxContainer" parent="Margin/Break/Margin/Tab/Audio/Settings"]
+auto_translate_mode = 1
+layout_mode = 2
+theme_override_constants/separation = 40
+
+[node name="Label" type="Label" parent="Margin/Break/Margin/Tab/Audio/Settings/PlayerVol"]
+auto_translate_mode = 1
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Player"
+horizontal_alignment = 1
+
+[node name="PlayerSlider" type="HSlider" parent="Margin/Break/Margin/Tab/Audio/Settings/PlayerVol"]
+unique_name_in_owner = true
+auto_translate_mode = 1
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="WorldVol" type="HBoxContainer" parent="Margin/Break/Margin/Tab/Audio/Settings"]
+auto_translate_mode = 1
+layout_mode = 2
+theme_override_constants/separation = 40
+
+[node name="Label" type="Label" parent="Margin/Break/Margin/Tab/Audio/Settings/WorldVol"]
+auto_translate_mode = 1
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Environment"
+horizontal_alignment = 1
+
+[node name="WorldSlider" type="HSlider" parent="Margin/Break/Margin/Tab/Audio/Settings/WorldVol"]
+unique_name_in_owner = true
+auto_translate_mode = 1
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Game" type="Control" parent="Margin/Break/Margin/Tab"]
+auto_translate_mode = 1
+visible = false
+layout_mode = 2
+
+[node name="Settings" type="VBoxContainer" parent="Margin/Break/Margin/Tab/Game"]
+auto_translate_mode = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.1
+anchor_right = 0.5
+anchor_bottom = 0.9
+metadata/_edit_use_anchors_ = true
+
+[node name="Difficulty" type="HBoxContainer" parent="Margin/Break/Margin/Tab/Game/Settings"]
+auto_translate_mode = 1
+layout_mode = 2
+theme_override_constants/separation = 40
+
+[node name="Label" type="Label" parent="Margin/Break/Margin/Tab/Game/Settings/Difficulty"]
+auto_translate_mode = 1
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Difficulty"
+horizontal_alignment = 1
+
+[node name="DifficultyOption" type="OptionButton" parent="Margin/Break/Margin/Tab/Game/Settings/Difficulty"]
+unique_name_in_owner = true
+auto_translate_mode = 1
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Language" type="HBoxContainer" parent="Margin/Break/Margin/Tab/Game/Settings"]
+auto_translate_mode = 1
+layout_mode = 2
+theme_override_constants/separation = 40
+
+[node name="Label" type="Label" parent="Margin/Break/Margin/Tab/Game/Settings/Language"]
+auto_translate_mode = 1
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Language"
+horizontal_alignment = 1
+
+[node name="LanguageOption" type="OptionButton" parent="Margin/Break/Margin/Tab/Game/Settings/Language"]
+unique_name_in_owner = true
+auto_translate_mode = 1
+layout_mode = 2
+size_flags_horizontal = 3
+
+[connection signal="pressed" from="Margin/Break/Back" to="." method="_on_back_pressed"]
+[connection signal="item_selected" from="Margin/Break/Margin/Tab/Display/Settings/Resolution/ResolutionOption" to="." method="_on_resolution_option_item_selected"]
+[connection signal="pressed" from="Margin/Break/Margin/Tab/Display/Settings/Resolution/ResolutionOption" to="." method="_on_generic_interaction"]
+[connection signal="item_selected" from="Margin/Break/Margin/Tab/Display/Settings/Window/WindowOption" to="." method="_on_window_option_item_selected"]
+[connection signal="pressed" from="Margin/Break/Margin/Tab/Display/Settings/Window/WindowOption" to="." method="_on_generic_interaction"]
+[connection signal="drag_ended" from="Margin/Break/Margin/Tab/Audio/Settings/MasterVol/MasterSlider" to="." method="_on_master_slider_drag_ended"]
+[connection signal="drag_ended" from="Margin/Break/Margin/Tab/Audio/Settings/MusicVol/MusicSlider" to="." method="_on_music_slider_drag_ended"]
+[connection signal="drag_ended" from="Margin/Break/Margin/Tab/Audio/Settings/PlayerVol/PlayerSlider" to="." method="_on_player_slider_drag_ended"]
+[connection signal="drag_ended" from="Margin/Break/Margin/Tab/Audio/Settings/WorldVol/WorldSlider" to="." method="_on_world_slider_drag_ended"]
+[connection signal="item_selected" from="Margin/Break/Margin/Tab/Game/Settings/Difficulty/DifficultyOption" to="." method="_on_difficulty_option_item_selected"]
+[connection signal="pressed" from="Margin/Break/Margin/Tab/Game/Settings/Difficulty/DifficultyOption" to="." method="_on_generic_interaction"]
+[connection signal="item_selected" from="Margin/Break/Margin/Tab/Game/Settings/Language/LanguageOption" to="." method="_on_language_option_item_selected"]
+[connection signal="pressed" from="Margin/Break/Margin/Tab/Game/Settings/Language/LanguageOption" to="." method="_on_generic_interaction"]

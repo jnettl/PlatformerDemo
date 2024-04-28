@@ -1,0 +1,59 @@
+[gd_scene load_steps=11 format=3 uid="uid://c8ff6e7johga1"]
+
+[ext_resource type="Script" path="res://scripts/game.gd" id="1_fcwxj"]
+[ext_resource type="Script" path="res://scripts/level.gd" id="1_t132n"]
+[ext_resource type="Script" path="res://scripts/menu.gd" id="2_mmodf"]
+[ext_resource type="Shader" path="res://shaders/generic/stars.gdshader" id="3_1yim7"]
+[ext_resource type="PackedScene" uid="uid://yyv0xqbbkqqk" path="res://scenes/ui/main_menu.tscn" id="3_234x3"]
+[ext_resource type="Theme" uid="uid://xycdr35n7pr4" path="res://assets/ui/theme.tres" id="4_j6jw3"]
+[ext_resource type="PackedScene" uid="uid://dwt6p8g3yfnnw" path="res://scenes/ui/pause_menu.tscn" id="5_fg2dy"]
+[ext_resource type="PackedScene" uid="uid://gwrq328gnx2y" path="res://scenes/ui/settings_menu.tscn" id="6_efwkx"]
+[ext_resource type="PackedScene" uid="uid://doh6s1fxxxnya" path="res://scenes/ui/loading_menu.tscn" id="11_jt6qh"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qktwb"]
+shader = ExtResource("3_1yim7")
+shader_parameter/bg_color = Color(0.137255, 0.0901961, 0.215686, 1)
+shader_parameter/big_star_density = 0.1
+shader_parameter/big_star_scale = 100.0
+shader_parameter/speed = 0.75
+
+[node name="Game" type="Node"]
+script = ExtResource("1_fcwxj")
+
+[node name="Level" type="CanvasLayer" parent="."]
+visible = false
+script = ExtResource("1_t132n")
+
+[node name="Menu" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("4_j6jw3")
+script = ExtResource("2_mmodf")
+
+[node name="Background" type="ColorRect" parent="Menu"]
+material = SubResource("ShaderMaterial_qktwb")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MainMenu" parent="Menu" groups=["menu_scene"] instance=ExtResource("3_234x3")]
+layout_mode = 1
+
+[node name="PauseMenu" parent="Menu" groups=["menu_scene"] instance=ExtResource("5_fg2dy")]
+visible = false
+layout_mode = 1
+
+[node name="SettingsMenu" parent="Menu" groups=["menu_scene"] instance=ExtResource("6_efwkx")]
+visible = false
+layout_mode = 1
+
+[node name="LoadingMenu" parent="Menu" groups=["menu_scene"] instance=ExtResource("11_jt6qh")]
+visible = false
+layout_mode = 1
