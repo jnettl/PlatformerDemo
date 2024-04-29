@@ -2,7 +2,7 @@ extends Control
 
 @export var loading_hints: PackedStringArray
 
-@onready var label: Label = $CenterContainer/Label
+@onready var label := $CenterContainer/Label as Label
 
 
 func _ready() -> void:

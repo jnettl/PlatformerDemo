@@ -13,8 +13,11 @@ const SAVE_NAME = "save{0}.res"
 const MAX_SAVES = 3
 const STRIP_RES = false
 
-@onready var Level := $Level as CanvasLayer
-@onready var Menu := $Menu as Control
+const Level = preload("res://scripts/level.gd")
+const Menu = preload("res://scripts/menu.gd")
+
+@onready var level := $Level as Level
+@onready var menu := $Menu as Menu
 
 
 #region Static Methods
@@ -89,16 +92,16 @@ static func get_save_list() -> Array[SaveState]:
 
 
 func _ready() -> void:
-	Menu.exit.connect(_on_exit_game)
-	Menu.new_save.connect(create_save_file)
-	Menu.load_save.connect(func(slot: int) -> void:
-			Level.load_save(get_save(slot)))
-	Level.load_finished.connect(func() -> void:
-			Menu.background.hide()
-			Menu.change_current_menu(Menu.State.NONE))
+	menu.exit.connect(_on_exit_game)
+	menu.new_save.connect(create_save_file)
+	menu.load_save.connect(func(slot: int) -> void:
+			level.load_save(get_save(slot)))
+	level.load_finished.connect(func() -> void:
+			menu.background.hide()
+			menu.change_current_menu(menu.State.NONE))
 
 
 func _on_exit_game(soft: bool) -> void:
-	Level.save_and_close()
+	level.save_and_close()
 	if not soft:
 		get_tree().quit()

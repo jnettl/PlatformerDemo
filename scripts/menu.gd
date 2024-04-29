@@ -15,10 +15,15 @@ enum State {
 	SETTINGS,
 }
 
-var main_menu: Control
-var pause_menu: Control
-var settings_menu: Control
-var loading_menu: Control
+const MainMenu = preload("res://scripts/ui/main_menu.gd")
+const PauseMenu = preload("res://scripts/ui/pause_menu.gd")
+const SettingsMenu = preload("res://scripts/ui/settings_menu.gd")
+const LoadingMenu = preload("res://scripts/ui/loading_menu.gd")
+
+var main_menu: MainMenu
+var pause_menu: PauseMenu
+var settings_menu: SettingsMenu
+var loading_menu: LoadingMenu
 var background: ColorRect
 
 
@@ -27,10 +32,10 @@ func _ready() -> void:
 	# Ideally, the emitted signal would propagate through to the super class.
 	# TODO: Refactor signal propagation to avoid this weird inheritance tree.
 	# These node references should really be @onreadys, and Menu a CanvasLayer.
-	main_menu = $MainMenu as Control
-	pause_menu = $PauseMenu as Control
-	settings_menu = $SettingsMenu as Control
-	loading_menu = $LoadingMenu as Control
+	main_menu = $MainMenu as MainMenu
+	pause_menu = $PauseMenu as PauseMenu
+	settings_menu = $SettingsMenu as SettingsMenu
+	loading_menu = $LoadingMenu as LoadingMenu
 	background = $Background as ColorRect
 	
 	main_menu.interact.connect(_on_interaction)

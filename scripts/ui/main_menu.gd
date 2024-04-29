@@ -2,6 +2,8 @@ extends "res://scripts/menu.gd"
 
 const SAVE_SLOT = preload("res://scenes/ui/component/save_slot.tscn")
 
+const SaveSlot = preload("res://scenes/ui/component/save_slot.gd")
+
 var _overwrite_save_on_load: bool = false
 
 @onready var load_game := %LoadGame as Button
@@ -20,7 +22,7 @@ func populate_save_slots(saves: Array[SaveState]) -> void:
 	var save_state: SaveState
 	var save_index: int = 0
 	for i in range(Game.MAX_SAVES):
-		var save_slot := SAVE_SLOT.instantiate() as Control
+		var save_slot := SAVE_SLOT.instantiate() as SaveSlot
 		save_slots.add_child(save_slot)
 		
 		if len(saves) > save_index and saves[save_index].slot == i + 1:
@@ -36,10 +38,10 @@ func populate_save_slots(saves: Array[SaveState]) -> void:
 
 func set_save_overwrite(enable: bool) -> void:
 	_overwrite_save_on_load = enable
-	for child in save_slots.get_children():
-		if not (child.get_child(0) as Button).get_text().begins_with("Empty"):
+	for slot: SaveSlot in save_slots.get_children():
+		if not slot.button.get_text().begins_with("Empty"):
 			continue
-		(child.get_child(0) as Button).set_disabled(!enable)
+		slot.button.set_disabled(!enable)
 
 
 func _on_load_game_selected(save: SaveState) -> void:
