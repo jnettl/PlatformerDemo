@@ -6,6 +6,7 @@ extends Resource
 @export var updated_time: float = -1
 @export_range(0, 1) var progress: float = 0.0
 @export_range(1, Game.MAX_SAVES) var slot: int
+@export var scene: PackedScene
 
 
 static func validate(save_state: SaveState) -> Error:

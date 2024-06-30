@@ -1,9 +1,87 @@
-[gd_resource type="Theme" load_steps=9 format=3 uid="uid://xycdr35n7pr4"]
+[gd_resource type="Theme" load_steps=19 format=3 uid="uid://xycdr35n7pr4"]
 
 [ext_resource type="FontFile" uid="uid://b03vvia832gip" path="res://assets/font/Kenney High.ttf" id="1_8dh2e"]
+[ext_resource type="Texture2D" uid="uid://yh84ggh5e5pq" path="res://assets/ui/interfacePack_32x.png" id="1_ynhge"]
 [ext_resource type="FontFile" uid="uid://dhw1qa4aoh643" path="res://assets/font/Kenney Future Square.ttf" id="2_nhb8p"]
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wu4xx"]
+texture = ExtResource("1_ynhge")
+texture_margin_left = 8.0
+texture_margin_top = 8.0
+texture_margin_right = 8.0
+texture_margin_bottom = 8.0
+region_rect = Rect2(102, 34, 32, 32)
+modulate_color = Color(0.712129, 0.712129, 0.712129, 1)
+
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_asgu0"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ewdc4"]
+texture = ExtResource("1_ynhge")
+texture_margin_left = 8.0
+texture_margin_top = 8.0
+texture_margin_right = 8.0
+texture_margin_bottom = 8.0
+region_rect = Rect2(68, 68, 32, 32)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_uu7sp"]
+texture = ExtResource("1_ynhge")
+texture_margin_left = 8.0
+texture_margin_top = 8.0
+texture_margin_right = 8.0
+texture_margin_bottom = 8.0
+region_rect = Rect2(68, 34, 32, 32)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wsdu2"]
+texture = ExtResource("1_ynhge")
+texture_margin_left = 8.0
+texture_margin_top = 8.0
+texture_margin_right = 8.0
+texture_margin_bottom = 8.0
+region_rect = Rect2(102, 34, 32, 32)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3v1v1"]
+texture = ExtResource("1_ynhge")
+texture_margin_left = 8.0
+texture_margin_top = 8.0
+texture_margin_right = 8.0
+texture_margin_bottom = 8.0
+region_rect = Rect2(68, 34, 32, 32)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_a2xpc"]
+texture = ExtResource("1_ynhge")
+texture_margin_left = 8.0
+texture_margin_top = 8.0
+texture_margin_right = 8.0
+texture_margin_bottom = 8.0
+region_rect = Rect2(68, 34, 32, 32)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fgdv0"]
+texture = ExtResource("1_ynhge")
+texture_margin_left = 8.0
+texture_margin_top = 8.0
+texture_margin_right = 8.0
+texture_margin_bottom = 8.0
+region_rect = Rect2(102, 34, 32, 32)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_elbxg"]
+texture = ExtResource("1_ynhge")
+texture_margin_left = 8.0
+texture_margin_top = 8.0
+texture_margin_right = 8.0
+texture_margin_bottom = 8.0
+expand_margin_left = 4.0
+expand_margin_top = 4.0
+expand_margin_right = 4.0
+expand_margin_bottom = 4.0
+region_rect = Rect2(306, 0, 32, 32)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xkwnd"]
+texture = ExtResource("1_ynhge")
+texture_margin_left = 8.0
+texture_margin_top = 8.0
+texture_margin_right = 8.0
+texture_margin_bottom = 8.0
+region_rect = Rect2(102, 34, 32, 32)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a5lr1"]
 bg_color = Color(1, 1, 1, 0.247059)
@@ -45,9 +123,18 @@ corner_detail = 1
 [resource]
 default_font = ExtResource("2_nhb8p")
 default_font_size = 14
+Button/styles/disabled = SubResource("StyleBoxTexture_wu4xx")
 Button/styles/focus = SubResource("StyleBoxEmpty_asgu0")
+Button/styles/hover = SubResource("StyleBoxTexture_ewdc4")
+Button/styles/normal = SubResource("StyleBoxTexture_uu7sp")
+Button/styles/pressed = SubResource("StyleBoxTexture_wsdu2")
+HSlider/styles/grabber_area = SubResource("StyleBoxTexture_3v1v1")
+HSlider/styles/grabber_area_highlight = SubResource("StyleBoxTexture_a2xpc")
+HSlider/styles/slider = SubResource("StyleBoxTexture_fgdv0")
 HeaderLarge/font_sizes/font_size = 80
 HeaderLarge/fonts/font = ExtResource("1_8dh2e")
+PopupMenu/styles/hover = SubResource("StyleBoxTexture_elbxg")
+PopupMenu/styles/panel = SubResource("StyleBoxTexture_xkwnd")
 TabContainer/styles/panel = SubResource("StyleBoxFlat_a5lr1")
 TabContainer/styles/tab_focus = SubResource("StyleBoxEmpty_iru0h")
 TabContainer/styles/tab_hovered = SubResource("StyleBoxFlat_vyy30")

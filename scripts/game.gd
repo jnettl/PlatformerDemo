@@ -9,7 +9,7 @@ enum Difficulty {
 }
 
 const SAVE_PATH = "user://saves/"
-const SAVE_NAME = "save{0}.res"
+const SAVE_NAME = "save{0}.tres"
 const MAX_SAVES = 3
 const STRIP_RES = false
 
@@ -33,6 +33,7 @@ static func create_save_file(slot: int) -> Error:
 			assert(err == OK, "failed backup of {0}: Error {1}.".format([filename, err]))
 	save_state = SaveState.new().init(slot)
 	save_state.name = "New Game"
+	save_state.scene = load(Level.NEW_GAME)
 	err = ResourceSaver.save(save_state, SAVE_PATH + SAVE_NAME.format([slot - 1]), ResourceSaver.FLAG_COMPRESS)
 	assert(err == OK, "failed to create file {0}: Error {1}.".format([SAVE_PATH + SAVE_NAME.format([slot - 1]), err]))
 	return err

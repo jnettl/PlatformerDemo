@@ -11,7 +11,7 @@ enum WindowState {
 	FULLSCREEN,
 }
 
-const _MIN_WINDOW_SIZE := Vector2i(1280, 720)
+const _MIN_WINDOW_SIZE = Vector2i(1280, 720)
 
 # TODO: Save and load as resource
 # Display

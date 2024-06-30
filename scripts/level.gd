@@ -8,6 +8,8 @@ enum State {
 	RUNNING,
 }
 
+const NEW_GAME = &"res://scenes/level/demo.tscn"
+
 var state: State = State.NONE
 
 var current_save_slot: int
@@ -21,8 +23,8 @@ func load_save(p_save: SaveState) -> void:
 	state = State.LOADING
 	current_save_slot = p_save.slot
 	
-	# TODO: Actually load the save here
-	await get_tree().create_timer(2).timeout
+	var level: PackedScene = p_save.scene
+	add_child(level.instantiate())
 	
 	print("Loaded " + p_save.name)
 	load_finished.emit()

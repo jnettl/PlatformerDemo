@@ -12,7 +12,7 @@
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_qktwb"]
 shader = ExtResource("3_1yim7")
-shader_parameter/bg_color = Color(0.137255, 0.0901961, 0.215686, 1)
+shader_parameter/bg_color = Color(0.0896989, 0.0541759, 0.148842, 1)
 shader_parameter/big_star_density = 0.1
 shader_parameter/big_star_scale = 100.0
 shader_parameter/speed = 0.75
@@ -22,6 +22,9 @@ script = ExtResource("1_fcwxj")
 
 [node name="Level" type="CanvasLayer" parent="."]
 visible = false
+scale = Vector2(2, 2)
+transform = Transform2D(2, 0, 0, 2, 0, 0)
+follow_viewport_enabled = true
 script = ExtResource("1_t132n")
 
 [node name="Menu" type="Control" parent="."]
